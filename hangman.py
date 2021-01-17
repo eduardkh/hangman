@@ -14,3 +14,5 @@ LOGO = """
 
 print(LOGO)
 print(random.randint(5, 10))
+guess = input("Guess a letter:")
+print(guess)
