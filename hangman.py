@@ -15,5 +15,4 @@ LOGO = """
 print(LOGO)
 print(random.randint(5, 10))
 guess = input("Guess a letter:")
-underscores = "_ "*len(guess)
-print(underscores.strip()) # strips the last space
+print(("_ "*len(guess)).strip())  # Order of Operations / strips the last space
