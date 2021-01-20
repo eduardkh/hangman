@@ -26,11 +26,29 @@ def punctuationInString(guess):
     return False
 
 
-if punctuationInString(guess) and len(guess) > 1:
-    print("E3")
-elif len(guess) > 1:
-    print("E1")
-elif punctuationInString(guess):
-    print("E2")
-else:
-    print(guess.lower())
+""" Conditions """
+# if punctuationInString(guess) and len(guess) > 1:
+#     print("E3")
+# elif len(guess) > 1:
+#     print("E1")
+# elif punctuationInString(guess):
+#     print("E2")
+# else:
+#     print(guess.lower())
+
+
+""" Function """
+
+
+def is_valid_input(letter_guessed):
+    if punctuationInString(letter_guessed) and len(letter_guessed) > 1:
+        return False
+    elif len(letter_guessed) > 1:
+        return False
+    elif punctuationInString(letter_guessed):
+        return False
+    else:
+        return True
+
+
+print(is_valid_input(guess))
