@@ -65,3 +65,26 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed):
         print("X")
         print("->".join(sorted(old_letters_guessed)))
         return False
+
+
+""" Loops """
+
+# secret_word = "yes"
+# old_letters_guessed = ['d', 'g', 'e', 'i', 's', 'k', 'y']
+
+# secret_word = "friends"
+# old_letters_guessed = ['m', 'p', 'j', 'i', 's', 'k']
+
+word_guessed = []
+
+
+def check_win(secret_word, old_letters_guessed):
+    for char in secret_word:
+        if char in old_letters_guessed:
+            word_guessed.append(char)
+    if len(secret_word) == len(word_guessed):
+        return True
+    return False
+
+
+print(check_win(secret_word, old_letters_guessed))
