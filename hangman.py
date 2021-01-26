@@ -1,6 +1,6 @@
 import random
 import string
-
+from hangman_photos import HANGMAN_PHOTOS
 
 LOGO = """
   _    _                                         
@@ -87,4 +87,8 @@ def check_win(secret_word, old_letters_guessed):
     return False
 
 
-print(check_win(secret_word, old_letters_guessed))
+""" Data structures """
+
+
+def print_hangman(num_of_tries):
+    return HANGMAN_PHOTOS[num_of_tries]
