@@ -1,5 +1,6 @@
 import random
 import string
+import os
 from hangman_photos import HANGMAN_PHOTOS
 
 LOGO = """
@@ -26,18 +27,7 @@ def punctuationInString(letter_guessed):
     return False
 
 
-""" Conditions """
-# if punctuationInString(guess) and len(guess) > 1:
-#     print("E3")
-# elif len(guess) > 1:
-#     print("E1")
-# elif punctuationInString(guess):
-#     print("E2")
-# else:
-#     print(guess.lower())
-
-
-""" Function """
+""" Conditions and Function """
 
 
 def is_valid_input(letter_guessed):
@@ -51,7 +41,6 @@ def is_valid_input(letter_guessed):
         return True
 
 
-# print(is_valid_input(guess))
 """ Lists """
 old_letters_guessed = []
 
@@ -68,13 +57,6 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed):
 
 
 """ Loops """
-
-# secret_word = "yes"
-# old_letters_guessed = ['d', 'g', 'e', 'i', 's', 'k', 'y']
-
-# secret_word = "friends"
-# old_letters_guessed = ['m', 'p', 'j', 'i', 's', 'k']
-
 word_guessed = []
 
 
@@ -92,3 +74,19 @@ def check_win(secret_word, old_letters_guessed):
 
 def print_hangman(num_of_tries):
     return HANGMAN_PHOTOS[num_of_tries]
+
+
+""" Files """
+words = "words.txt"
+script_dir = os.path.dirname(__file__)
+file_path = f"{script_dir}\{words}"
+
+
+def choose_word(file_path, index):
+    with open(file_path, "r") as f:
+        words = f.read()
+        splitted = words.split()
+        mod = index % len(splitted)
+        if mod > 0:
+            return len(set(splitted)), splitted[mod-1]
+        return len(set(splitted)), splitted[index-1]
